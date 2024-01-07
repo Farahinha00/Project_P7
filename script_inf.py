@@ -1,6 +1,7 @@
 !pip install joblib
 !pip install pandas
 !pip install lime
+!pip install gdown
 
 import tensorflow as tf
 import pandas as pd
@@ -14,6 +15,14 @@ import lime
 from lime import lime_text
 from sklearn.pipeline import make_pipeline
 from lime.lime_text import LimeTextExplainer
+
+import gdown
+
+url_model = 'https://drive.google.com/file/d/1xLUbmweUrzLHSeD-oA6JCn0p_7MMG1rw/view?usp=sharing'
+url_tokenizer = 'https://drive.google.com/file/d/1T1TyJIXPg_JIiiGW6wSZId2rbqQVFtfr/view?usp=sharing'
+
+gdown.download(url_model, './Common/mon_best_model.h5', quiet=False)
+gdown.download(url_tokenizer, './Common/tokenizer.pkl', quiet=False)
 
 # Charger le modèle pré-entraîné
 best_model = tf.keras.models.load_model('./Common/mon_best_model.h5')
