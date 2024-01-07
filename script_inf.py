@@ -47,7 +47,7 @@ def make_inference(input_data):
     
     explainer = LimeTextExplainer(class_names=['bad', 'good'])
     exp = explainer.explain_instance(input_data, model_predict, num_features=10)
-    exp.show_in_notebook(text=True)
+    exp.show_in_notebook(text=True,show_table=True)
     
     return prediction, exp
 
